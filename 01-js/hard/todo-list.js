@@ -9,9 +9,34 @@
 
   Once you've implemented the logic, test your code by running
 */
-
 class Todo {
-
+  todos=[];
+  add(todo){
+    this.todos.push(todo);
+  }
+  remove(indexOfTodo){
+    this.todos.splice(indexOfTodo,1)
+  }
+  update(index,updatedTodo){
+    if (index >= 0 && index < this.todos.length) {
+      this.todos[index] = updatedTodo;
+    } else {
+      return 0;
+    }
+  }
+  getAll(){
+    return this.todos;
+  }
+  get(indexOfTodo){
+    if (indexOfTodo>=0 && indexOfTodo < this.todos.length){    
+      return this.todos[indexOfTodo];
+    }
+    else{
+      return null;
+    }
+  }
+  clear(){
+    return this.todos.splice(0);
+  }
 }
-
 module.exports = Todo;
